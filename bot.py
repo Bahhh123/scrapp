@@ -20,10 +20,10 @@ now it is an obsolete version for my work environment, that's why I post it for 
 ---------------Deploy on Heroku
 
 -Secret keys: 
-	-TOKEN: 123:ABC
+	-TOKEN: 3082893:5850a6f672ab5bdb1467f9c57bd1d46f
 	- MODE: prod
-	- CHAT_ID_FORWARD: -1111
-	- HEROKU_APP_NAME: (HEROKU APP NAME)
+	- CHAT_ID_FORWARD: -1468454418
+	- HEROKU_APP_NAME: scrapcc
 '''
 
 
@@ -37,7 +37,7 @@ client = pymongo.MongoClient(
 	)# MONGO DB LINK 
 db = client.credit_cards
 
-developers = ['878216403']
+developers = ['1468454418']
 
 
 addusr = ""
@@ -53,9 +53,9 @@ if mode == "dev":
 elif mode == "prod":
 	def run(updater):
 		PORT = int(os.environ.get("PORT", "8443"))
-		HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
+		HEROKU_APP_NAME = os.environ.get("scrapcc")
 		updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=tk)
-		updater.bot.set_webhook(f"https://{HEROKU_APP_NAME}.herokuapp.com/"+ tk)
+		updater.bot.set_webhook(f"https://scrapcc.herokuapp.com/"+ tk)
 else:
 	sys.exit()
 
@@ -66,7 +66,7 @@ def start(update):
 @run_async
 def extrct(update, context):
 	
-	gex = ['-11111111111'] #To exclude groups from scraping
+	gex = ['-1001413734653'] #To exclude groups from scraping
 
 	try:
 		chat_id = str(update.message.chat_id)
